@@ -785,7 +785,7 @@
 <script>
   // ── Google Sheets via Apps Script ──
   // REPLACE THIS URL with your deployed Apps Script Web App URL
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxaWpJUvf0tFAwkZmTun9B2JuhawOt7ln1-pMYFqfXiUdDVzlvHatWJn73mkVn3ez6c_w/exec';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyTvvDS6yLtfaMnZE5Qm9ShWNIWlXUfntFU6_siUX9UdwSMahE3RFrZK8yWLoPW4EGX_w/exec';
 
   const input    = document.getElementById('emailInput');
   const btn      = document.getElementById('submitBtn');
@@ -814,9 +814,9 @@
 
     try {
       await fetch(`${APPS_SCRIPT_URL}?email=${encodeURIComponent(email)}&timestamp=${encodeURIComponent(new Date().toISOString())}`, {
-  method: 'GET',
-  mode: 'no-cors'
-});
+      method: 'GET',
+      mode: 'no-cors'
+    });
     } catch (err) {
       // no-cors swallows errors; we optimistically show success
       console.warn('Fetch error (may be ok with no-cors):', err);
