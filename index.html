@@ -4,9 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CharityCRM – Finally, a CRM built for Nonprofits</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -43,7 +40,7 @@
     .left {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: top;
       padding: 56px 64px;
       gap: 0;
       position: relative;
@@ -87,13 +84,18 @@
       overflow: hidden;
       background: var(--border);
     }
-    .avatar:nth-child(1) { background: #7c9e8d; }
-    .avatar:nth-child(2) { background: #4B3FD8; }
-    .avatar:nth-child(3) { background: #e8a44a; }
+    .avatar img {
+      width: 100%;
+    }
+    .avatar:nth-child(1),
+    .avatar:nth-child(2),
+    .avatar:nth-child(3) {
+      margin-left: -2px;
+    }
     .social-proof-text {
-      font-size: 13.5px;
+      font-size: 14px;
       color: var(--ink-muted);
-      margin-left: 14px;
+      margin-left: 5px;
     }
 
     /* Headline */
@@ -240,7 +242,7 @@
       flex-shrink: 0;
     }
 
-    /* ── Right Panel – Scrolling mockup ── */
+    /* ── Right Panel – Scrolling image ── */
     .right {
       position: relative;
       overflow: hidden;
@@ -269,10 +271,10 @@
     .scroll-track {
       display: flex;
       flex-direction: column;
-      animation: scrollUp 30s linear infinite;
-      width: 100%;
-      padding: 24px 40px 24px 20px;
-      gap: 16px;
+      animation: scrollUp 20s linear infinite;
+      width: 34vw;
+      float: right;
+      padding-right: 30px;
     }
     @keyframes scrollUp {
       0%   { transform: translateY(0); }
@@ -280,195 +282,26 @@
     }
     .scroll-track:hover { animation-play-state: paused; }
 
-    /* Mockup cards */
-    .card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 20px 22px;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    }
-
-    /* Stats card */
-    .stats-card { }
-    .stats-row {
-      display: flex;
-      gap: 20px;
-      align-items: flex-end;
-      margin-bottom: 14px;
-    }
-    .stat { }
-    .stat-label {
-      font-size: 11px;
-      color: var(--ink-muted);
-      margin-bottom: 2px;
-      display: flex; align-items: center; gap: 5px;
-    }
-    .dot { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
-    .dot-teal { background: #1a8a7a; }
-    .dot-orange { background: #e8a44a; }
-    .stat-val {
-      font-family: 'Syne', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--ink);
-    }
-    .badge {
-      font-size: 11px;
-      font-weight: 600;
-      color: #2d9e6b;
-      background: #e0f4ec;
-      padding: 2px 6px;
-      border-radius: 20px;
-      margin-left: 4px;
-    }
-    .stat-meta {
-      font-size: 11px;
-      color: var(--ink-muted);
-    }
-
-    /* Bar chart placeholder */
-    .chart-placeholder {
-      height: 80px;
-      background: linear-gradient(to bottom, #f0f9f5, var(--white));
-      border-radius: 8px;
-      display: flex;
-      align-items: flex-end;
-      gap: 4px;
-      padding: 8px 4px 0;
-      overflow: hidden;
-    }
-    .bar {
-      flex: 1;
-      border-radius: 3px 3px 0 0;
-      opacity: 0.85;
-    }
-
-    /* Donation card */
-    .donation-card { }
-    .donation-type-label { font-size: 11px; color: var(--ink-muted); margin-bottom: 8px; }
-    .btn-group { display: flex; gap: 8px; margin-bottom: 12px; }
-    .btn-pill {
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 12.5px;
-      font-weight: 500;
-      border: 1.5px solid var(--border);
-      background: var(--white);
-      color: var(--ink-muted);
-      cursor: default;
-    }
-    .btn-pill.active { background: var(--ink); color: white; border-color: var(--ink); }
-    .amount-label { font-size: 11px; color: var(--ink-muted); margin-bottom: 8px; }
-    .amount-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 8px; }
-    .amt-btn {
-      padding: 7px;
-      border-radius: 8px;
-      font-size: 12.5px;
-      font-weight: 500;
-      border: 1.5px solid var(--border);
-      background: var(--white);
-      color: var(--ink-muted);
-      text-align: center;
-      cursor: default;
-    }
-    .amt-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
-    .donate-btn-mock {
+    .scroll-track img {
       width: 100%;
-      padding: 11px;
-      background: #1a8a7a;
-      color: white;
-      border-radius: 10px;
-      font-size: 13.5px;
-      font-weight: 600;
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    /* Raised card */
-    .raised-card {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .raised-label { font-size: 11px; color: var(--ink-muted); }
-    .raised-amount {
-      font-family: 'Syne', sans-serif;
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--ink);
-    }
-    .raised-change { font-size: 12px; color: #2d9e6b; font-weight: 600; }
-
-    /* Kindness card */
-    .kindness-card {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-    }
-    .avatar-lg {
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #e8b78a, #c97c40);
+      display: block;
       flex-shrink: 0;
     }
-    .kindness-text {
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 1.4;
-      color: var(--ink);
-    }
 
-    /* Donors table */
-    .donors-card { }
-    .donors-header {
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      gap: 8px;
-      font-size: 11px;
-      color: var(--ink-muted);
-      margin-bottom: 10px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    .donors-row {
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      gap: 8px;
-      align-items: center;
-      padding: 7px 0;
-      border-bottom: 1px solid #f0f4f2;
-      font-size: 13px;
-    }
-    .donors-row:last-child { border-bottom: none; }
-    .donor-name { display: flex; align-items: center; gap: 8px; }
-    .donor-avatar {
-      width: 26px; height: 26px; border-radius: 50%;
-      font-size: 11px; font-weight: 700; color: white;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .donors-row .amount { font-weight: 600; font-size: 12px; }
-    .donors-row .date { font-size: 11px; color: var(--ink-muted); }
-
-    /* Image placeholder */
-    .img-placeholder {
+    /* Single image scroll */
+    .scroll-image {
       width: 100%;
-      aspect-ratio: 16/9;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #c5d8ce 0%, #8fb3a0 100%);
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
+      display: block;
     }
-    .img-placeholder svg { opacity: 0.3; }
 
     @media (max-width: 768px) {
       html, body { overflow: auto; }
       .layout { grid-template-columns: 1fr; height: auto; overflow: auto; }
-      .right { height: 420px; }
+      .right { display: none;}
       .left { padding: 40px 28px; }
     }
   </style>
+  <meta name="google-site-verification" content="O6L5Po05SaTf_7N1-NPzrpK6BVpNxNe4EBQifJabyMU" />
 </head>
 <body>
 
@@ -483,29 +316,26 @@
   <div class="left">
 
     <div class="logo">
-      <div class="logo-icon">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 2a8 8 0 110 16A8 8 0 0112 4z" opacity=".4"/></svg>
-      </div>
-      CharityCRM
+      <img src="assets/logo.png" />
     </div>
 
     <div class="social-proof">
       <div class="avatars">
-        <div class="avatar"></div>
-        <div class="avatar"></div>
-        <div class="avatar"></div>
+        <div class="avatar"><img src="assets/char1.png" /></div>
+        <div class="avatar"><img src="assets/char2.png" /></div>
+        <div class="avatar"><img src="assets/char3.png" /></div>
       </div>
-      <span class="social-proof-text">108 charities joined the waitlist.</span>
+      <span class="social-proof-text">39 charities received early access waitlist.</span>
     </div>
 
-    <h1>Finally, a CRM<br>built for Nonprofits</h1>
+    <h1>Finally, a CRM built for Nonprofits</h1>
 
     <p class="subtext">We know how difficult it is for a NGO to find the proper CRM … and we have the solution! Final testing phase in progress. Get early access for free!</p>
 
     <div class="features">
       <div class="feature">
         <div class="feature-icon purple">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#4B3FD8" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+            <img src="assets/timer.png" />
         </div>
         <div class="feature-body">
           <h3>Quick & Easy Onboarding</h3>
@@ -514,7 +344,7 @@
       </div>
       <div class="feature">
         <div class="feature-icon green">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2d9e6b" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <img src="assets/up.png" />
         </div>
         <div class="feature-body">
           <h3>Donations Management</h3>
@@ -523,7 +353,7 @@
       </div>
       <div class="feature">
         <div class="feature-icon orange">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#c97c40" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <img src="assets/chart.png" />
         </div>
         <div class="feature-body">
           <h3>Powerful Reports</h3>
@@ -558,226 +388,13 @@
 
   </div>
 
-  <!-- ═══ RIGHT – Infinite scroll mockup ═══ -->
+  <!-- ═══ RIGHT – Infinite scroll image ═══ -->
   <div class="right">
     <div class="scroll-track" id="scrollTrack">
 
-      <!-- Image placeholder top -->
-      <div class="card" style="padding:0; overflow:hidden;">
-        <div class="img-placeholder" style="aspect-ratio:16/8; border-radius:14px;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6a9a85" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        </div>
-      </div>
-
-      <!-- Stats card -->
-      <div class="card stats-card">
-        <div class="stats-row">
-          <div class="stat">
-            <div class="stat-label"><span class="dot dot-teal"></span>Raised</div>
-            <div class="stat-val">$148,320 <span class="badge">+31K</span></div>
-          </div>
-          <div class="stat">
-            <div class="stat-label"><span class="dot dot-orange"></span>Donations</div>
-            <div class="stat-val">709 <span class="badge">+24</span></div>
-          </div>
-          <div class="stat" style="margin-left:auto; text-align:right;">
-            <div class="stat-label">Started on Jul 1, 2025</div>
-            <div class="stat-meta">28 days ago</div>
-          </div>
-        </div>
-        <div class="chart-placeholder">
-          <!-- bars of varying heights in teal/dark -->
-          <div class="bar" style="height:35%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:45%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:38%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:55%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:48%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:65%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:50%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:72%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:60%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:80%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:70%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:88%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:76%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:92%; background:#0d5e52;"></div>
-          <div class="bar" style="height:85%; background:#0d5e52;"></div>
-          <div class="bar" style="height:100%; background:#0d5e52;"></div>
-        </div>
-      </div>
-
-      <!-- Donation type card -->
-      <div class="card donation-card">
-        <div class="donation-type-label">Donation type</div>
-        <div class="btn-group">
-          <div class="btn-pill active">One time</div>
-          <div class="btn-pill">Monthly</div>
-        </div>
-        <div class="amount-label">Amount</div>
-        <div class="amount-grid">
-          <div class="amt-btn">$25</div>
-          <div class="amt-btn active">$50</div>
-          <div class="amt-btn">$100</div>
-          <div class="amt-btn" style="grid-column: span 1;">$150</div>
-          <div class="amt-btn" style="grid-column: span 2;">Custom</div>
-        </div>
-        <div class="donate-btn-mock">Donate $50</div>
-      </div>
-
-      <!-- Raised this month -->
-      <div class="card raised-card">
-        <div class="raised-label">Raised this month</div>
-        <div class="raised-amount">$75,300 <span class="raised-change">+$11,500</span></div>
-        <div class="chart-placeholder" style="height:55px; margin-top:8px;">
-          <svg width="100%" height="100%" viewBox="0 0 200 50" preserveAspectRatio="none">
-            <polyline points="0,40 30,30 60,35 90,20 120,25 150,15 180,10 200,8" fill="none" stroke="#4B3FD8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <polygon points="0,40 30,30 60,35 90,20 120,25 150,15 180,10 200,8 200,50 0,50" fill="url(#areaGrad)" opacity="0.15"/>
-            <defs><linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4B3FD8"/><stop offset="100%" stop-color="transparent"/></linearGradient></defs>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Image placeholder 2 -->
-      <div class="card" style="padding:0; overflow:hidden;">
-        <div class="img-placeholder" style="aspect-ratio:3/4; border-radius:14px; background: linear-gradient(135deg, #3d7a6a 0%, #1a3d33 100%);">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6adaba" stroke-width="1.5" opacity="0.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        </div>
-      </div>
-
-      <!-- Kindness card -->
-      <div class="card kindness-card">
-        <div class="avatar-lg"></div>
-        <div class="kindness-text">Your kindness is<br>making the world a<br>better place.</div>
-      </div>
-
-      <!-- Donors table -->
-      <div class="card donors-card">
-        <div class="donors-header">
-          <span>Donor</span>
-          <span>Amount</span>
-          <span>Date</span>
-        </div>
-        <div class="donors-row">
-          <div class="donor-name"><div class="donor-avatar" style="background:#e8a44a;">S</div>Sarah Thompson</div>
-          <span class="amount">250 USD</span>
-          <span class="date">Jul 28</span>
-        </div>
-        <div class="donors-row">
-          <div class="donor-name"><div class="donor-avatar" style="background:#4B3FD8;">M</div>Michael Reed</div>
-          <span class="amount">1,000 USD</span>
-          <span class="date">Jul 24</span>
-        </div>
-        <div class="donors-row">
-          <div class="donor-name"><div class="donor-avatar" style="background:#2d9e6b;">J</div>Jennifer Lin</div>
-          <span class="amount">75 USD</span>
-          <span class="date">Jul 24</span>
-        </div>
-        <div class="donors-row">
-          <div class="donor-name"><div class="donor-avatar" style="background:#c97c40;">R</div>Robert Kim</div>
-          <span class="amount">500 USD</span>
-          <span class="date">Jul 22</span>
-        </div>
-      </div>
-
-      <!-- ── DUPLICATE for seamless loop ── -->
-
-      <div class="card" style="padding:0; overflow:hidden;">
-        <div class="img-placeholder" style="aspect-ratio:16/8; border-radius:14px;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6a9a85" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        </div>
-      </div>
-      <div class="card stats-card">
-        <div class="stats-row">
-          <div class="stat">
-            <div class="stat-label"><span class="dot dot-teal"></span>Raised</div>
-            <div class="stat-val">$148,320 <span class="badge">+31K</span></div>
-          </div>
-          <div class="stat">
-            <div class="stat-label"><span class="dot dot-orange"></span>Donations</div>
-            <div class="stat-val">709 <span class="badge">+24</span></div>
-          </div>
-          <div class="stat" style="margin-left:auto; text-align:right;">
-            <div class="stat-label">Started on Jul 1, 2025</div>
-            <div class="stat-meta">28 days ago</div>
-          </div>
-        </div>
-        <div class="chart-placeholder">
-          <div class="bar" style="height:35%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:45%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:38%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:55%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:48%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:65%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:50%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:72%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:60%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:80%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:70%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:88%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:76%; background:#1a8a7a;"></div>
-          <div class="bar" style="height:92%; background:#0d5e52;"></div>
-          <div class="bar" style="height:85%; background:#0d5e52;"></div>
-          <div class="bar" style="height:100%; background:#0d5e52;"></div>
-        </div>
-      </div>
-      <div class="card donation-card">
-        <div class="donation-type-label">Donation type</div>
-        <div class="btn-group">
-          <div class="btn-pill active">One time</div>
-          <div class="btn-pill">Monthly</div>
-        </div>
-        <div class="amount-label">Amount</div>
-        <div class="amount-grid">
-          <div class="amt-btn">$25</div>
-          <div class="amt-btn active">$50</div>
-          <div class="amt-btn">$100</div>
-          <div class="amt-btn">$150</div>
-          <div class="amt-btn" style="grid-column: span 2;">Custom</div>
-        </div>
-        <div class="donate-btn-mock">Donate $50</div>
-      </div>
-      <div class="card raised-card">
-        <div class="raised-label">Raised this month</div>
-        <div class="raised-amount">$75,300 <span class="raised-change">+$11,500</span></div>
-        <div class="chart-placeholder" style="height:55px; margin-top:8px;">
-          <svg width="100%" height="100%" viewBox="0 0 200 50" preserveAspectRatio="none">
-            <polyline points="0,40 30,30 60,35 90,20 120,25 150,15 180,10 200,8" fill="none" stroke="#4B3FD8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <polygon points="0,40 30,30 60,35 90,20 120,25 150,15 180,10 200,8 200,50 0,50" fill="url(#areaGrad2)" opacity="0.15"/>
-            <defs><linearGradient id="areaGrad2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4B3FD8"/><stop offset="100%" stop-color="transparent"/></linearGradient></defs>
-          </svg>
-        </div>
-      </div>
-      <div class="card" style="padding:0; overflow:hidden;">
-        <div class="img-placeholder" style="aspect-ratio:3/4; border-radius:14px; background: linear-gradient(135deg, #3d7a6a 0%, #1a3d33 100%);">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6adaba" stroke-width="1.5" opacity="0.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        </div>
-      </div>
-      <div class="card kindness-card">
-        <div class="avatar-lg"></div>
-        <div class="kindness-text">Your kindness is<br>making the world a<br>better place.</div>
-      </div>
-      <div class="card donors-card">
-        <div class="donors-header">
-          <span>Donor</span><span>Amount</span><span>Date</span>
-        </div>
-        <div class="donors-row">
-          <div class="donor-name"><div class="donor-avatar" style="background:#e8a44a;">S</div>Sarah Thompson</div>
-          <span class="amount">250 USD</span><span class="date">Jul 28</span>
-        </div>
-        <div class="donors-row">
-          <div class="donor-name"><div class="donor-avatar" style="background:#4B3FD8;">M</div>Michael Reed</div>
-          <span class="amount">1,000 USD</span><span class="date">Jul 24</span>
-        </div>
-        <div class="donors-row">
-          <div class="donor-name"><div class="donor-avatar" style="background:#2d9e6b;">J</div>Jennifer Lin</div>
-          <span class="amount">75 USD</span><span class="date">Jul 24</span>
-        </div>
-        <div class="donors-row">
-          <div class="donor-name"><div class="donor-avatar" style="background:#c97c40;">R</div>Robert Kim</div>
-          <span class="amount">500 USD</span><span class="date">Jul 22</span>
-        </div>
-      </div>
-
+      <!-- Image duplicated for seamless loop -->
+      <img src="assets/scroll.png" alt="App mockup" />
+      <img src="assets/scroll.png" alt="App mockup" />
     </div>
   </div>
 </div>
@@ -785,7 +402,7 @@
 <script>
   // ── Google Sheets via Apps Script ──
   // REPLACE THIS URL with your deployed Apps Script Web App URL
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyTvvDS6yLtfaMnZE5Qm9ShWNIWlXUfntFU6_siUX9UdwSMahE3RFrZK8yWLoPW4EGX_w/exec';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzjFlkvO36QsKjvuN2cxPqWjcLAaFQlryUZHcjyGShDvgRt7PnfIQ5McLpBAicp7VAP/exec';
 
   const input    = document.getElementById('emailInput');
   const btn      = document.getElementById('submitBtn');
@@ -813,13 +430,16 @@
     btn.textContent = 'Sending…';
 
     try {
-      await fetch(`${APPS_SCRIPT_URL}?email=${encodeURIComponent(email)}&timestamp=${encodeURIComponent(new Date().toISOString())}`, {
-      method: 'GET',
-      mode: 'no-cors'
-    });
+      const params = new URLSearchParams({
+        email,
+        timestamp: new Date().toISOString()
+      });
+      await fetch(`${APPS_SCRIPT_URL}?${params}`, {
+        method: 'GET',
+        mode: 'no-cors'
+      });
     } catch (err) {
-      // no-cors swallows errors; we optimistically show success
-      console.warn('Fetch error (may be ok with no-cors):', err);
+      console.warn('Fetch error:', err);
     }
 
     // Show success toast
